@@ -1,45 +1,22 @@
-JARVIS Mark 1: Multi-Core AI Assistant
-Overview
-JARVIS Mark 1 is a localized AI assistant featuring a custom routing architecture that distributes tasks across specialized LLM cores (e.g., Llama 3.2 for general chat and Qwen 2.5 for coding).
+# JARVIS Mark 1: Multi-Core AI Assistant
 
-Prerequisites
-Ollama installed and running.
+## Overview
+JARVIS Mark 1 is a localized AI assistant featuring a custom routing architecture that distributes tasks across specialized LLM cores.
 
-Python 3.10+
+## Prerequisites
+* **Ollama** (Llama 3.2 & Qwen 2.5)
+* **Python 3.10+**
 
-Git
+## Setup & Installation
 
-Setup Instructions
-Clone the Repository
+1. **Clone/Download Files**
+   Download all project files into a single root directory. 
 
-Bash
-git clone https://github.com/your-username/jarvis-mark1.git
-cd jarvis-mark1
-Pull Required Models
+2. **Note on Flat Directory Structure**
+   Currently, all core logic and utility files are located in the **root directory** rather than a `tools/` folder. Ensure your imports are configured as follows:
+   * Use `import core_router` instead of `from tools import core_router`.
+   * Ensure `requirements.txt` is in the same folder as `main.py`.
 
-Bash
-ollama pull llama3.2
-ollama pull qwen2.5
-Install Dependencies
-
-Bash
-pip install -r requirements.txt
-Configuration
-Update config.py (or your routing script) to ensure the API endpoints point to your local Ollama instance:
-
-Chat Core: llama3.2
-
-Coding Core: qwen2.5
-
-Default Port: 11434
-
-Execution
-
-Bash
-python main.py
-Architecture
-Router: Directs user queries based on intent.
-
-Cores: Local LLMs served via Ollama.
-
-Interface: Command-line execution on
+3. **Install Dependencies**
+   ```bash
+   pip install -r requirements.txt
